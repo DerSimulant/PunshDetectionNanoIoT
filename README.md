@@ -1,7 +1,56 @@
 # PunshDetectionNanoIoT
-
+German below*************************************
 Project to detect punshed with the MPU6050 and the Arduino Nano 33 IoT
 
+
+Libraries and Objects
+
+ArduinoIoTCloud.h: This is the library required for communicating with the Arduino IoT Cloud.
+Wire.h and MPU6050.h: These libraries are needed for communicating with the MPU6050 sensor over the I2C bus.
+MPU6050 mpu: Here, an object named mpu of type MPU6050 is created which is used for interfacing with the sensor.
+
+
+Global Variables
+
+myLED and turbine: These are pin numbers for an LED and a turbine sensor.
+lastPunchTime: Stores the last time a punch was detected.
+PUNCH_DETECTION_INTERVAL: The time interval (in milliseconds) in which a punch can be detected. Set here to 1 second (1000 ms).
+PUNCH_THRESHOLD: The acceleration threshold at which a punch is considered detected.
+
+
+Setup Function
+
+Serial communication is started.
+Pins are configured.
+The MPU6050 sensor is initialized.
+It checks if a connection to the MPU6050 can be established.
+A connection to the Arduino IoT Cloud is established and debug information is printed out.
+
+
+Loop Function
+
+Here's where the main logic of the program happens:
+
+The IoT Cloud is updated.
+The value from the turbine sensor is read.
+Acceleration values from the MPU6050 are read.
+The magnitude of the acceleration is calculated and compared with the threshold.
+It checks if enough time has passed since the last detected punch.
+If a punch is detected, relevant variables are updated.
+
+
+Tuning Parameters:
+
+PUNCH_DETECTION_INTERVAL: This value determines how often a punch can be detected. A higher value means fewer punches per second can be detected; a lower value allows for more frequent detection.
+PUNCH_THRESHOLD: This value determines the minimum acceleration to be considered as a punch. A higher value means stronger punches are required for detection, while a lower value might detect softer punches.
+By adjusting these two values, you can fine-tune the behavior of the program regarding punch detection.
+
+
+Functions for IoT Cloud Changes
+
+These functions get called when the respective variables in the IoT Cloud get changed. You can add code here to act upon changes in these variables.
+
+************************************************************************************************************************
 
 Bibliotheken und Objekte
 
